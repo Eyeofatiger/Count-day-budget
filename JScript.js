@@ -11,39 +11,28 @@ let appData = {
 	savings: false
 };
 
-let a1 = prompt("Enter the name of most thing which you need to spend money", ''),
-	a2 = prompt("How much will you spend?", ''),
-	a3 = prompt("Enter the name of most thing which you need to spend money", ''),
-	a4 = prompt("How much will you spend?", '');
+for (let i = 0; i<2; i++){
+        let a = prompt("Enter the name of most thing which you need to spend money", ''),
+            b = prompt("How much will you spend?", ''); 
+           if((typeof(a)) === "string" && (typeof(a)) != null && typeof(b) != null
+                && a != "" && b !="" && a.length < 50){ 
+            console.log("done");
+            appData.expenses[a] = b;
+           } else{
+                   i--;
+           }
+}
 
-appData.expenses.a1 = a2;
-appData.expenses.a3 = a4;
+appData.moneyPerDay = appData.budget / 30;
 
-alert(appData.budget / 30);
+alert("Every day budget : " +appData.moneyPerDay);
 
-/*
-var money = +prompt ("How much do you earn monthly?"),
-    time = prompt ("Enter date in format  YYYY-MM-DD");
-
-let appData = {
-        budget: money,
-        timeData: time,
-        expenses: {
-                n1: prompt ("Enter the name of most thing which you need to spend money: "),
-                n2: +prompt ("How much will you spend?"),
-                n3: prompt ("Enter the name of most thing which you need to spend money: "),
-                n4: +prompt ("How much will you spend?")} ,
-        optionalExpenses: {},
-        income: [],
-        savings: false
-};
+        if(appData.moneyPerDay < 100){
+                console.log("It's not so much!!!");
+        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 500){
+                console.log("It's good, enough money, medium position");
+        } else if(appData.moneyPerDay > 500){
+                console.log("Very good!");
+        } else {console.log("Somthing wrong!");}
 
 
-alert("Budget for 1 day will be :" + 
-                (appData.budget - appData.expenses.n2 - appData.expenses.n4)/30);
-
-               prompt ("Enter the name of most thing which you need to spend money:"):
-               +prompt ("How much will you spend?"),
-               prompt ("Enter the name of most thing which you need to spend money:"):
-               +prompt ("How much will you spend?")
-               */
