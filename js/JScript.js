@@ -28,6 +28,8 @@ let money, time;
 
 startBtn.addEventListener("click", function (){
         time = prompt('Enter the date YYYY-MM-DD', '');
+        let reg = /^[1-2]\d{3}-[0-2]?\d-[0-3]?\d$/;
+        if(reg.test(time)){
         money = +prompt("What is your monthly budjet?", '');
         while((isNaN(money)) || money == null || money == ""){
                 money = +prompt("What is your monthly budjet?", '');     
@@ -41,6 +43,8 @@ startBtn.addEventListener("click", function (){
         for(let i=0; i<buttons.length; i++){
                 buttons[i].removeAttribute("disabled");
         }
+} else{alert("Enter please correct date YYYY-MM-DD");
+}
 });
 
 expensesBtn.addEventListener("click", function(){
